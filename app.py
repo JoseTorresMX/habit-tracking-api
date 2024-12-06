@@ -10,3 +10,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy import create_engine
 
 # Construyendo la app
+app = Flask(__name__)
+app.config
+
+# Configurando la base de datos
