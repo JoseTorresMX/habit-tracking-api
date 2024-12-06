@@ -1,20 +1,22 @@
-from flask import Blueprint, request, jsonify
+#from flask import Blueprint, request, jsonify
 #from models.user_model import create_user
 from app import mysql
+#from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 
-
-def create_user(name, email, password):
-    # Conectar a la base de datos
+def create_user(mysql, name, email, password):
     cursor = mysql.connection.cursor()
-
-    # Ejecutar consulta para insertar el usuario en la base de datos
     cursor.execute(
-        "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",
+        "INSERT INTO users (name, email, password) VALUES (%s, %s, %s)",
         (name, email, password)
     )
-
-    # Confirmar la transacción
     mysql.connection.commit()
-
-    # Cerrar el cursor
     cursor.close()
+
+def get_users(mysql):
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT id, name, email FROM users")
+    users = cursor.fetchall()
+    cursor.close()
+    return users
+

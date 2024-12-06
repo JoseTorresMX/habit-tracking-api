@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from models.habit_model import create_habit, get_all_habits, get_habit_by_id, update_habit, delete_habit
+#from app import mysql
 
 habit_routes = Blueprint('habits', __name__)
 
