@@ -1,6 +1,6 @@
 #from flask import Blueprint, request, jsonify
 #from models.user_model import create_user
-from app import mysql
+from app.app import mysql
 #from flask_mysqldb import MySQL
 from flask_mysqldb import MySQL
 
