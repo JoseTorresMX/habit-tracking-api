@@ -102,7 +102,7 @@ def login():
     # Verificar credenciales
     if user and user.check_password(data['password']):
         # Crear token de acceso
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity=str(user.id))
         return jsonify(access_token=access_token), 200
 
     return jsonify({"error": "Invalid credentials"}), 401
