@@ -110,4 +110,4 @@ def login():
 
 @auth_bp.route('/me', methods=['GET'])
 def get_current_user():
-    return jsonify({"message": "Endpoint not implemented"}), 501
+    return jsonify({"message": "Estas loggeado"}), 200
